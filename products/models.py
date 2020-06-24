@@ -73,12 +73,6 @@ class Product(models.Model):
         verbose_name = 'Προϊόν'
          # verbose_plural_name = 'Προϊόντα'
 
-    def get_edit_url(self):
-        return reverse('edit_product_update', kwargs={'pk': self.id})
-
-    def get_copy_url(self):
-        return reverse('copy_product_view', kwargs={'pk': self.id})
-
     def save(self, *args, **kwargs):
         self.barcode = self.create_barcode()
 
@@ -98,6 +92,15 @@ class Product(models.Model):
 
     def tag_price_buy(self):
         return f'{round(self.price_buy, 2)} {CURRENCY}'
+
+    @property
+    def tag_vendor(self):
+        return self.vendor.title
+
+    @property
+    def tag_brand(self):
+        return self.brand.title
+
 
     def __str__(self):
         return self.title
