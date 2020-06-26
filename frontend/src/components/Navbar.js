@@ -17,8 +17,7 @@ class Navbar extends React.Component{
 
 
   render(){
-    const {isAuthenticated} = this.props;
-    console.log('navbar', isAuthenticated);
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
     return(
         <Menu fixed='top' inverted>
             <Container>

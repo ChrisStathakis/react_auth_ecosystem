@@ -1,13 +1,10 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import { Grid, Segment, Form } from 'semantic-ui-react';
+import axiosInstance from "../components/helpers";
+import {BASE_URL, BRANDS_LIST_ENDPOINT, VENDORS_LIST_ENDPOINT} from "../components/endpoints";
 
-const options = [
-    { key: 'm', text: 'Male', value: 'male' },
-    { key: 'f', text: 'Female', value: 'female' },
-    { key: 'o', text: 'Other', value: 'other' },
-  ]
-  
+
 
 class CreateProductView extends React.Component {
 
@@ -16,6 +13,8 @@ class CreateProductView extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
+            vendors:[],
+            brands:[],
             value: 1,
             vendorOptions: [],
             brandOptions: [],
@@ -27,23 +26,58 @@ class CreateProductView extends React.Component {
         }
     }
 
-    handleChange = (evt) => {
+    handleChange(evt){
+        console.log('mi oyu ff');
         this.setState({
             [evt.target.name]: evt.target.value
         })
-    }
+    };
 
     handleSubmit = (evt) =>{
         evt.preventDefault();
         console.log(this.state)
+    };
+
+    getVendors(){
+        axiosInstance.get(VENDORS_LIST_ENDPOINT)
+            .then(respData=>{
+                this.setState({
+                    vendors: respData.data
+                })
+            })
+    }
+
+    getBrands(){
+         axiosInstance.get(BRANDS_LIST_ENDPOINT)
+            .then(respData=>{
+                this.setState({
+                    brands: respData.data
+                })
+            })
+    }
+
+    componentDidMount(){
+        this.getVendors();
+        this.getBrands();
     }
 
 
 
-
     render() {
-        const vendorOptions = this.state
-        const { value, status, title, sku } = this.state
+        const {vendors, brands} = this.state;
+        let optionsVendors = [];
+        let optionsBrands = [];
+        const { status, title, sku } = this.state;
+        if(vendors.length>0){
+             optionsVendors = vendors.map((vendor, index)=>{
+                 return({key: vendor.id, text:vendor.title, value:vendor.id})
+        });
+            if(brands.length>0){
+             optionsBrands = brands.map((vendor, index)=>{
+                 return({key: vendor.id, text:vendor.title, value:vendor.id})
+        })
+        }
+
         return(
             <div>
                 <Navbar />
@@ -54,44 +88,37 @@ class CreateProductView extends React.Component {
                             <Form.Checkbox label='Status' onChange={this.handleChange} value={status} />
                             <Form.Group widths='equal'>
                                 <Form.Input fluid label='Sku' placeholder='Sku' />
-                                <Form.Input fluid label='Τιτλος' placeholder='Τιτλος' />
+                                <Form.Input fluid name='title' label='Τιτλος' onChange={this.handleChange}  value={title} placeholder='Τιτλος' />
                                 <Form.Select
                                     fluid
-                                    label='Προμηθευτης'
-                                    options={vendorOptions}
-                                    placeholder='Προμηθευτης'
+                                    label='Gender'
+                                    options={optionsVendors}
+                                    placeholder='Choose'
+                                    name='vendor'
                                 />
-                                </Form.Group>
-                                <Form.Group inline>
-                                <label>Size</label>
-                                <Form.Radio
-                                    label='Small'
-                                    value='sm'
-                                    checked={value === 'sm'}
-                                    onChange={this.handleChange}
+
+                            </Form.Group>
+                            <Form.Group widths='equal'>
+                                <Form.Input fluid label='Sku' placeholder='Sku' />
+                                <Form.Input fluid name='title' label='Τιτλος' onChange={this.handleChange}  value={title} placeholder='Τιτλος' />
+                                <Form.Select
+                                    fluid
+                                    name='brand'
+                                    label='Brand'
+
+                                    options={optionsBrands}
+                                    placeholder='Choose'
                                 />
-                                <Form.Radio
-                                    label='Medium'
-                                    value='md'
-                                    checked={value === 'md'}
-                                    onChange={this.handleChange}
-                                />
-                                <Form.Radio
-                                    label='Large'
-                                    value='lg'
-                                    checked={value === 'lg'}
-                                    onChange={this.handleChange}
-                                />
-                                </Form.Group>
-                                
-                                
-                                <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
+
+                            </Form.Group>
+                            <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
                             </Form>
                         </Segment>
                     </Grid.Column>
                 </Grid>
-
             </div>
+
+
         )
     }
 }

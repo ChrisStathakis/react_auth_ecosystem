@@ -25,7 +25,7 @@ class ProductHomepage extends React.Component{
     async getProducts(){
         try{
             let response = await axiosInstance.get(PRODUCTS_ENDPOINT);
-            const products = response.data
+            const products = response.data;
             this.setState({
                 products: products,
                 loadProduct: true
@@ -44,8 +44,7 @@ class ProductHomepage extends React.Component{
 
     componentDidMount(){
         const isAuthenticated = localStorage.getItem('isAuthenticated');
-        console.log('component',isAuthenticated)
-        if (isAuthenticated === 'false'){
+        if (!isAuthenticated){
             return this.props.history.push('/login/')
         }
         this.getProducts();

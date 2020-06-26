@@ -108,10 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+
     ],
 }
 
@@ -140,4 +142,5 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    'localhost:3000'
 ]

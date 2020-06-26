@@ -1,7 +1,11 @@
 import axios from 'axios';
 import {BASE_URL, REFRESH_TOKEN_ENDPOINT} from "./endpoints";
 
-
+function logout() {
+    localStorage.setItem('access_token', null);
+    localStorage.setItem('refresh_token', null);
+    localStorage.setItem('isAutheticated', false)
+}
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
@@ -19,10 +23,15 @@ axiosInstance.interceptors.response.use(
     error => {
         const originalRequest = error.config;
 
+        if (!error.response){
+            return Promise.reject({message: 'Wrong'})
+            console.log('Wrong')
+        }
+
         // Prevent infinite loops early
         if (error.response.status === 401 && originalRequest.url === REFRESH_TOKEN_ENDPOINT) {
             window.location.href = '/login/';
-            return Promise.reject(error);
+            return Promise.reject({message: '401 Exception'});
         }
 
         if (error.response.data.code === "token_not_valid" &&
@@ -30,9 +39,15 @@ axiosInstance.interceptors.response.use(
             error.response.statusText === "Unauthorized") 
             {
                 const refreshToken = localStorage.getItem('refresh_token');
-                console.log('here!!', refreshToken)
+                console.log('here!!', refreshToken);
+                if (typeof refreshToken == 'undefined'){
+                    console.log('unde');
+                    logout();
+                    return Promise.reject({message: 'logout'})
+                }
 
                 if (refreshToken){
+                    console.log('continue');
                     const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
 
                     // exp date in token is expressed in seconds, while now() returns milliseconds:

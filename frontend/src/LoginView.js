@@ -33,7 +33,7 @@ class LoginView extends React.Component{
     }
 
     componentDidMount(){
-        const isAuthenticated = localStorage.getItem('isAuthenticated')
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
         console.log('test auth', isAuthenticated);
         if(isAuthenticated === 'true'){
             console.log('here!');

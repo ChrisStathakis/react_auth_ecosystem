@@ -15,12 +15,25 @@ TAXES_CHOICES = (
     ('a', 13),
 )
 
+
 class Vendor(models.Model):
+    active = models.BooleanField(default=True)
     title = models.CharField(max_length=200)
+    balance = models.DecimalField(default=0.00, decimal_places=2, max_digits=100)
+
+    def __str__(self):
+        return self.title
+
+    def tag_balance(self):
+        return f'{self.balance} {CURRENCY}'
 
 
 class Brand(models.Model):
-    name = models.name = models.CharField(max_length=200)
+    active = models.BooleanField(default=True)
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
 
 
 class Category(MPTTModel):
