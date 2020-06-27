@@ -4,7 +4,7 @@ export const LOGIN_ENDPOINT = BASE_URL + 'token/';
 export const REFRESH_TOKEN_ENDPOINT = BASE_URL + 'token/refresh/';
 
 export const PRODUCTS_ENDPOINT = BASE_URL  + 'products/list/';
-
+export const CREATE_PRODUCT_ENDPOINT = BASE_URL + 'products/create/';
 
 
 export const VENDORS_LIST_ENDPOINT = BASE_URL + 'products/vendors/';

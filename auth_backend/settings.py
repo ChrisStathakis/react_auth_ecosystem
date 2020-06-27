@@ -140,7 +140,9 @@ STATIC_URL = '/static/'
 
 CORS_ALLOW_CREDENTIALS = True
 
+
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'localhost:3000'
+    'http://localhost:8000',
+    'http://localhost:8080',
 ]

@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 import axiosInstance from "../components/helpers";
 import { PRODUCTS_ENDPOINT} from "../components/endpoints";
 import TableRow from './components/TableRow';
-import CreateProductView from'./CreateProductView'
+import CreateProductView from'./CreateProductComponent'
 
 
 class ProductHomepage extends React.Component{

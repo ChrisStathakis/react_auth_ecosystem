@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import { Grid, Segment, Form } from 'semantic-ui-react';
 import axiosInstance from "../components/helpers";
-import {BASE_URL, BRANDS_LIST_ENDPOINT, VENDORS_LIST_ENDPOINT} from "../components/endpoints";
+import {BASE_URL, BRANDS_LIST_ENDPOINT, VENDORS_LIST_ENDPOINT, CREATE_PRODUCT_ENDPOINT} from "../components/endpoints";
 
 
 
@@ -35,7 +35,11 @@ class CreateProductView extends React.Component {
 
     handleSubmit = (evt) =>{
         evt.preventDefault();
-        console.log(this.state)
+        console.log(this.state);
+        axiosInstance.post(CREATE_PRODUCT_ENDPOINT, this.state)
+            .then(respData=>{
+                console.log('after creagte', respData)
+            })
     };
 
     getVendors(){
@@ -45,7 +49,7 @@ class CreateProductView extends React.Component {
                     vendors: respData.data
                 })
             })
-    }
+    };
 
     getBrands(){
          axiosInstance.get(BRANDS_LIST_ENDPOINT)
@@ -67,7 +71,7 @@ class CreateProductView extends React.Component {
         const {vendors, brands} = this.state;
         let optionsVendors = [];
         let optionsBrands = [];
-        const { status, title, sku } = this.state;
+        const { status, title, sku } = thi';s.state;
         if(vendors.length>0){
              optionsVendors = vendors.map((vendor, index)=>{
                  return({key: vendor.id, text:vendor.title, value:vendor.id})
@@ -111,16 +115,18 @@ class CreateProductView extends React.Component {
                                 />
 
                             </Form.Group>
-                            <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
                             </Form>
+                            <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
+                            
                         </Segment>
                     </Grid.Column>
                 </Grid>
             </div>
+            
 
 
         )
     }
 }
 
-export default CreateProductView;
+zz CreateProductView;
