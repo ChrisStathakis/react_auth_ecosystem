@@ -32,4 +32,4 @@ export const logoutAction = (data) => dispatch => {
     return {
         type: LOGOUT
     }
-}
+};

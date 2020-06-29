@@ -9,3 +9,4 @@ export const CREATE_PRODUCT_ENDPOINT = BASE_URL + 'products/create/';
 
 export const VENDORS_LIST_ENDPOINT = BASE_URL + 'products/vendors/';
 export const BRANDS_LIST_ENDPOINT = BASE_URL +'products/brands/';
+export const BRAND_CREATE_ENDPOINT = BRANDS_LIST_ENDPOINT;

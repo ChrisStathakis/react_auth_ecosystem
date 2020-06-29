@@ -1,8 +1,7 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .viewsets import BrandViewSet
-from .views import ProductListView, ProductCreateApiView, homepage, VendorViewSet
+from .views import ProductListView, ProductCreateApiView, homepage, VendorViewSet, BrandViewSet
 
 
 app_name = 'products'

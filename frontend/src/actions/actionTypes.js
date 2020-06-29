@@ -4,3 +4,8 @@ export const LOGIN_SUCCESS  = 'LOGIN_SUCCESS';
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
+
+
+export const PRODUCTS_REQUEST = 'PRODUCTS_REQUEST';
+export const BRAND_REQUEST = 'BRAND_REQUEST';
+export const VENDOR_REQUEST = 'VENDOR_REQUEST';

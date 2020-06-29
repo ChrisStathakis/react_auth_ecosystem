@@ -71,7 +71,7 @@ class CreateProductView extends React.Component {
         const {vendors, brands} = this.state;
         let optionsVendors = [];
         let optionsBrands = [];
-        const { status, title, sku } = thi';s.state;
+        const { status, title, sku } = this.state;
         if(vendors.length>0){
              optionsVendors = vendors.map((vendor, index)=>{
                  return({key: vendor.id, text:vendor.title, value:vendor.id})

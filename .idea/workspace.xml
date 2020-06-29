@@ -2,20 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="340d6754-97b6-4027-be12-53f245c00c62" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/products/api/viewsets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Products/components/CreateBrandComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/actions/productActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/reducers/productReducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth_backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth_backend/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/LoginView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Products/CreateProductComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Products/CreateProductComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Products/CreateProductView.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Products/CreateProductView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Products/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Products/Homepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/authActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/endpoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/endpoints.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,44 +31,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CreateProductView.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/Products/CreateProductView.js">
+      <file leaf-file-name="productReducers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/reducers/productReducers.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="productActions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/actions/productActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="114" column="35" lean-forward="true" selection-start-line="86" selection-start-column="20" selection-end-line="114" selection-end-column="35" />
+            <state relative-caret-position="20">
+              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="endpoints.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/endpoints.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Homepage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Homepage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/Products/Homepage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="45" column="72" selection-start-line="45" selection-start-column="72" selection-end-line="45" selection-end-column="72" />
+            <state relative-caret-position="255">
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helpers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/helpers.js">
+      <file leaf-file-name="actionTypes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/actions/actionTypes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="170">
+              <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -77,8 +75,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -99,25 +97,29 @@
         <option value="$PROJECT_DIR$/frontend/public/index.html" />
         <option value="$PROJECT_DIR$/frontend/src/Login.js" />
         <option value="$PROJECT_DIR$/frontend/src/reducers/index.js.html" />
-        <option value="$PROJECT_DIR$/frontend/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/store.js" />
-        <option value="$PROJECT_DIR$/frontend/src/actions/actionTypes.js" />
         <option value="$PROJECT_DIR$/frontend/src/reducers/authReducers.js" />
         <option value="$PROJECT_DIR$/frontend/src/App.js" />
-        <option value="$PROJECT_DIR$/frontend/src/actions/authActions.js" />
         <option value="$PROJECT_DIR$/frontend/src/logout.js" />
         <option value="$PROJECT_DIR$/products/api/serializers.py" />
         <option value="$PROJECT_DIR$/products/api/viewsets.py" />
         <option value="$PROJECT_DIR$/products/models.py" />
-        <option value="$PROJECT_DIR$/products/api/views.py" />
-        <option value="$PROJECT_DIR$/products/api/urls.py" />
-        <option value="$PROJECT_DIR$/auth_backend/settings.py" />
         <option value="$PROJECT_DIR$/frontend/src/LoginView.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Navbar.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/helpers.js" />
-        <option value="$PROJECT_DIR$/frontend/src/Products/Homepage.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/endpoints.js" />
         <option value="$PROJECT_DIR$/frontend/src/Products/CreateProductView.js" />
+        <option value="$PROJECT_DIR$/auth_backend/settings.py" />
+        <option value="$PROJECT_DIR$/frontend/src/Products/CreateProductComponent.js" />
+        <option value="$PROJECT_DIR$/products/api/views.py" />
+        <option value="$PROJECT_DIR$/products/api/urls.py" />
+        <option value="$PROJECT_DIR$/frontend/src/components/endpoints.js" />
+        <option value="$PROJECT_DIR$/frontend/src/Products/components/CreateBrandComponent.js" />
+        <option value="$PROJECT_DIR$/frontend/src/actions/actionTypes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/actions/authActions.js" />
+        <option value="$PROJECT_DIR$/frontend/src/actions/productActions.js" />
+        <option value="$PROJECT_DIR$/frontend/src/reducers/productReducers.js" />
+        <option value="$PROJECT_DIR$/frontend/src/reducers/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/Products/Homepage.js" />
       </list>
     </option>
   </component>
@@ -139,7 +141,7 @@
       <path value="$PROJECT_DIR$/node_modules/symbol-observable/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -149,6 +151,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,20 +175,12 @@
               <item name="react_auth_ecosystem" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_auth_ecosystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_auth_ecosystem" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Products" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,8 +255,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32943678" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2954304" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118229166" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2954304" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.118229166" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
@@ -277,21 +272,21 @@
       <window_info anchor="bottom" id="Message" order="0" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32943678" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118229166" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.118229166" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32943678" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32943678" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2954304" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
@@ -306,11 +301,18 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/actions/actionTypes.js</url>
+          <line>1</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/auth_front/src/App.js" />
-    <entry file="file://$PROJECT_DIR$/auth_front/src/Homepage.js" />
-    <entry file="file://$PROJECT_DIR$/auth_front/src/components/login.js" />
-    <entry file="file://$PROJECT_DIR$/auth_front/src/reducers/authReducers.js" />
     <entry file="file://$PROJECT_DIR$/auth_front/src/components/login.js" />
     <entry file="file://$PROJECT_DIR$/auth_front/src/components/Navbar.js" />
     <entry file="file://$PROJECT_DIR$/auth_front/src/Products/Homepage.js" />
@@ -349,13 +351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -366,29 +361,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/reducers/authReducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/actions/actionTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/actions/authActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="41" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -413,13 +387,6 @@
     <entry file="file://$PROJECT_DIR$/frontend/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/products/api/viewsets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/products/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -427,37 +394,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/products/api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/products/api/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products/api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth_backend/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="144" column="19" selection-start-line="144" selection-start-column="19" selection-end-line="144" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -475,34 +415,126 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/Products/CreateProductView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="69" column="14" lean-forward="true" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/helpers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth_backend/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/Products/CreateProductComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="93" column="115" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="115" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/Products/Homepage.js">
+    <entry file="file://$PROJECT_DIR$/products/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="45" column="72" selection-start-line="45" selection-start-column="72" selection-end-line="45" selection-end-column="72" />
+        <state relative-caret-position="680">
+          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/endpoints.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+        <state relative-caret-position="187">
+          <caret line="11" column="58" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/Products/CreateProductView.js">
+    <entry file="file://$PROJECT_DIR$/frontend/src/Products/components/CreateBrandComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="27" column="61" lean-forward="true" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/api/viewsets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/actions/actionTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/actions/authActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/reducers/authReducers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="581">
-          <caret line="114" column="35" lean-forward="true" selection-start-line="86" selection-start-column="20" selection-end-line="114" selection-end-column="35" />
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/reducers/productReducers.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/actions/productActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/Products/Homepage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

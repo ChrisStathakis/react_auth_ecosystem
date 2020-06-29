@@ -35,3 +35,9 @@ class VendorViewSet(ModelViewSet):
     queryset = Vendor.objects.all()
 
 
+
+class BrandViewSet(ModelViewSet):
+    serializer_class = BrandSerializer
+    queryset = Brand.objects.all()
+
+

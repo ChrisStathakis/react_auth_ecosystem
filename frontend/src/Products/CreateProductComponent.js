@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import axiosInstance from '../components/helpers';
-import { VENDORS_LIST_ENDPOINT, BRANDS_LIST_ENDPOINT } from '../components/endpoints';
-import { Grid, Segment, Form, Button } from 'semantic-ui-react';
+import {VENDORS_LIST_ENDPOINT, BRANDS_LIST_ENDPOINT, CREATE_PRODUCT_ENDPOINT} from '../components/endpoints';
+import { Grid, Segment, Form } from 'semantic-ui-react';
 
 
 
@@ -21,7 +21,8 @@ class CreateProductView extends React.Component {
             status: '',
             vendor: '',
             brand: '',
-            qty:0
+            qty:0,
+            value:0
 
         }
     }
@@ -35,7 +36,7 @@ class CreateProductView extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        console.log( this.state)
+        this.createProduct();
     }
 
     getVendors(){
@@ -58,7 +59,10 @@ class CreateProductView extends React.Component {
 
     createProduct(){
         const data = this.state;
-        
+        axiosInstance.post(CREATE_PRODUCT_ENDPOINT, data)
+            .then(respData=>{
+                console.log(respData)
+            })
     }
 
     componentDidMount(){
@@ -87,7 +91,7 @@ class CreateProductView extends React.Component {
                 <Grid.Column>
                     <Segment>
                         <Form>
-                            <Form.Checkbox label='Status' onChange={this.handleChange} value={status} value={sku} />
+                            <Form.Checkbox label='Status' onChange={this.handleChange} name={status} value={sku} />
                             <Form.Group widths='equal'>
                                 <Form.Input fluid label='Sku' placeholder='Sku' name='sku' onChange={this.handleChange} />
                                 <Form.Input fluid name='title' label='Τιτλος' onChange={this.handleChange}  value={title} placeholder='Τιτλος' />
@@ -109,6 +113,7 @@ class CreateProductView extends React.Component {
                                     name='brand'
                                     onChange={this.handleChange}
                                 />
+                                <Form.Input fluid label='Value' placeholder='0' name='value' onChange={this.handleChange} />
                                 <Form.Input fluid label='Qty' placeholder='Qty' value={qty} name='qty' />
                             </Form.Group>
                             <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
