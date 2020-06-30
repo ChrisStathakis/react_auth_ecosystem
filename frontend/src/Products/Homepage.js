@@ -10,6 +10,7 @@ import Navbar from '../components/Navbar'
 import TableRow from './components/TableRow';
 import CreateProductView from'./CreateProductComponent'
 import CreateBrandComponent from "./components/CreateBrandComponent";
+import FilterComponent from './components/FiltersComponent';
 
 
 class ProductHomepage extends React.Component{
@@ -53,7 +54,7 @@ class ProductHomepage extends React.Component{
                             <button onClick={this.addNewProductView} className="ui positive basic button">
                                 <i class="icon plus square"></i>Add
                             </button>
-
+                            <FilterComponent />
                             <CreateBrandComponent />
                             {newProductPage ? <CreateProductView /> : null}
 
@@ -121,6 +122,9 @@ ProductHomepage.propTypes = {
     products: PropTypes.array.isRequired,
     brands: PropTypes.array.isRequired,
     vendors: PropTypes.array.isRequired,
+    getProducts: PropTypes.func.isRequired,
+    getVendors: PropTypes.func.isRequired,
+    getVendors: PropTypes.func.isRequired
 
 
 }
@@ -144,7 +148,9 @@ const style = {
 
 
 const mapStateToProps = state=> ({
-  products: state.productReducer.products
+  products: state.productReducer.products,
+  brands: state.productReducer.brands,
+  vendors: state.productReducer.vendors
 });
 
 
