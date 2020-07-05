@@ -28,12 +28,11 @@ class LoginView extends React.Component{
     async handleSubmit(evt){
         evt.preventDefault();
         this.props.loginAction(this.state)
-    
-
     }
 
     componentDidMount(){
-        const isAuthenticated = localStorage.getItem('isAuthenticated');
+        const isAuthenticated = this.props.isAuthenticated;
+        console.log(isAuthenticated);
         console.log('test auth', isAuthenticated);
         if(isAuthenticated === 'true'){
             console.log('here!');

@@ -18,6 +18,7 @@ class ProductHomepage extends React.Component{
     constructor(props){
         super(props);
         this.addNewProductView = this.addNewProductView.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
         this.state = {
             loadProduct: false,
             newProductPage: false
@@ -28,6 +29,10 @@ class ProductHomepage extends React.Component{
         this.setState({
             newProductPage: !this.state.newProductPage
         })
+    }
+
+    handleUpdate(id){
+
     }
 
 
@@ -74,7 +79,7 @@ class ProductHomepage extends React.Component{
                                 </Table.Header>
                                 <Table.Body>
                                     {products.map((product, index)=>{
-                                        return <TableRow product={product} key={index} />
+                                        return <TableRow product={product} key={index} handleUpdate={this.handleUpdate} />
                                     })}
                                     </Table.Body>
                     </Table>
@@ -124,8 +129,6 @@ ProductHomepage.propTypes = {
     vendors: PropTypes.array.isRequired,
     getProducts: PropTypes.func.isRequired,
     getVendors: PropTypes.func.isRequired,
-    getVendors: PropTypes.func.isRequired
-
 
 }
 

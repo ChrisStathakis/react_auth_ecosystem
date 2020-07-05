@@ -15,10 +15,10 @@ export const loginAction = data => dispatch => {
                 localStorage.setItem('access_token', respData.data.access);
                 localStorage.setItem('refresh_token', respData.data.refresh);
                 localStorage.setItem('isAuthenticated', true);
-                return{
+                return dispatch({
                     type: LOGIN_SUCCESS,
                     payload: respData.data
-                }
+                })
             }
         )
 };
@@ -29,7 +29,7 @@ export const logoutAction = (data) => dispatch => {
     localStorage.setItem('access_token', null);
     localStorage.setItem('refresh_token', null);
     localStorage.setItem('isAuthenticated', false);
-    return {
+    return dispatch({
         type: LOGOUT
-    }
+    })
 };

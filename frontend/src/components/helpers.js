@@ -4,7 +4,7 @@ import {BASE_URL, REFRESH_TOKEN_ENDPOINT} from "./endpoints";
 function logout() {
     localStorage.setItem('access_token', null);
     localStorage.setItem('refresh_token', null);
-    localStorage.setItem('isAutheticated', false)
+    localStorage.setItem('isAuthenticated', false)
 }
 
 const axiosInstance = axios.create({

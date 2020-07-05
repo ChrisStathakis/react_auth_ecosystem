@@ -17,9 +17,6 @@ export default function authReducer(state=initialState, action){
                 isAuthenticated: false
             };
         case LOGIN_SUCCESS:
-            localStorage.setItem('access_token', action.payload.access_token);
-            localStorage.setItem('refresh_token', action.payload.refresh_token);
-            localStorage.setItem('isAuthenicated', true);
             return{
                 accessToken:action.payload.access_token,
                 refreshToken:action.payload.refresh_token,

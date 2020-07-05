@@ -1,8 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Navbar from '../components/Navbar';
 import axiosInstance from '../components/helpers';
 import {VENDORS_LIST_ENDPOINT, BRANDS_LIST_ENDPOINT, CREATE_PRODUCT_ENDPOINT} from '../components/endpoints';
+import {getProducts, getVendors, getBrands} from "../actions/productActions";
 import { Grid, Segment, Form } from 'semantic-ui-react';
+import productReducer from "../reducers/productReducers";
 
 
 
@@ -13,9 +16,6 @@ class CreateProductView extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            vendors: [],
-            brands: [],
-            
             title: '',
             sku: '',
             status: '',
@@ -29,65 +29,66 @@ class CreateProductView extends React.Component {
 
     handleChange(event){
         event.preventDefault();
+        const name = event.target.name;
+        const value = event.target.value;
+        console.log(event)
         this.setState({
             [event.target.name]: event.target.value
         })
     };
+
+
+
+    handleDropdown = (e, data)=>{
+        const name = data.name;
+        const value = data.value;
+        console.log('hitted', name, value);
+        this.setState({
+            [name]: value
+        })
+   };
+
+
 
     handleSubmit(event){
         event.preventDefault();
         this.createProduct();
     }
 
-    getVendors(){
-        axiosInstance.get(VENDORS_LIST_ENDPOINT)
-            .then(respData=>{
-                this.setState({
-                    vendors: respData.data
-                })
-            })
-    };
-
-    getBrands(){
-        axiosInstance.get(BRANDS_LIST_ENDPOINT)
-            .then(respData=>{
-                this.setState({
-                    brands: respData.data
-                })
-            })
-    }
 
     createProduct(){
         const data = this.state;
+        console.log('submit data', data)
         axiosInstance.post(CREATE_PRODUCT_ENDPOINT, data)
             .then(respData=>{
-                console.log(respData)
+                console.log('result', respData);
+                this.props.getProducts()
             })
     }
 
     componentDidMount(){
-        this.getBrands();
-        this.getVendors();
+        this.props.getBrands();
+        this.props.getVendors();
     };
 
     render(){
-        const {vendors, brands, status, vendor, title, sku, qty} = this.state;
+        const {vendors, brands} = this.props;
+        const {status, title, sku, qty} = this.state;
         let optionsVendor = [];
         let optionsBrand = [];
-        if (vendors.length > 0){
+        if (vendors !== undefined){
             optionsVendor = vendors.map((vendor, index)=>{
                 return ({key: vendor.id, text: vendor.title, value:vendor.id})
             })
         }
-        if (brands.length){
+        if (brands !== undefined){
             optionsBrand = brands.map((brand, index)=>{
-                return ({key: brand.id, text:vendor.title, value:vendor.id})
+                return ({key: brand.id, text:brand.name, value:brand.id})
             })
         }
 
         return (
             <div>
-                <Navbar />
                 <Grid.Column>
                     <Segment>
                         <Form>
@@ -101,7 +102,7 @@ class CreateProductView extends React.Component {
                                     options={optionsVendor}
                                     placeholder='Choose'
                                     name='vendor'
-                                    onChange={this.handleChange}
+                                    onChange={this.handleDropdown}
                                 />
                             </Form.Group>
                             <Form.Group>
@@ -111,7 +112,7 @@ class CreateProductView extends React.Component {
                                     options={optionsBrand}
                                     placeholder='Brands'
                                     name='brand'
-                                    onChange={this.handleChange}
+                                    onChange={this.handleDropdown}
                                 />
                                 <Form.Input fluid label='Value' placeholder='0' name='value' onChange={this.handleChange} />
                                 <Form.Input fluid label='Qty' placeholder='Qty' value={qty} name='qty' />
@@ -127,6 +128,9 @@ class CreateProductView extends React.Component {
 
 }
 
+const mapStateToProps = state => ({
+    brands: state.productReducer.brands,
+    vendors: state.productReducer.vendors
+});
 
-
-export default CreateProductView;
+export default connect(mapStateToProps, {getProducts, getVendors, getBrands})(CreateProductView);

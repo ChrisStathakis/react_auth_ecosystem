@@ -16,6 +16,15 @@ TAXES_CHOICES = (
 )
 
 
+class ProductClass(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    is_service = models.BooleanField(default=False)
+    have_warehouse = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
+
+
 class Vendor(models.Model):
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=200)
@@ -68,6 +77,7 @@ class Category(MPTTModel):
 
     
 class Product(models.Model):
+    product_class = models.ForeignKey(ProductClass, on_delete=models.CASCADE, null=True)
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=150, verbose_name='Ονομασια')
     sku = models.CharField(max_length=50, blank=True)
