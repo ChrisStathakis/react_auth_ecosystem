@@ -20,7 +20,7 @@ export const getProducts = (endpoint=PRODUCTS_ENDPOINT) => dispatch => {
         })
 };
 
-export const getBrands = (filters=[]) => dispatch => {
+export const getBrands = (filters=null) => dispatch => {
     axiosInstance.get(BRANDS_LIST_ENDPOINT)
         .then(
             respData=>{
@@ -33,8 +33,12 @@ export const getBrands = (filters=[]) => dispatch => {
 }
 
 
-export const getVendors = (filters=[]) => dispatch => {
-    axiosInstance.get(VENDORS_LIST_ENDPOINT)
+export const getVendors = (filters=null) => dispatch => {
+    let endpoint = VENDORS_LIST_ENDPOINT;
+    if (filters){
+        endpoint = endpoint + '?active='+filters.active
+    }
+    axiosInstance.get(endpoint)
         .then(respData=>{
             dispatch({
                 type: VENDOR_REQUEST,

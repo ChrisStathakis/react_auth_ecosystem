@@ -22,11 +22,13 @@ from profiles.views import UserViewSet, HomeView
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+from .views import homepage_api_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api/', homepage_api_view),
 
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),

@@ -29,6 +29,16 @@ class Vendor(models.Model):
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=200)
     balance = models.DecimalField(default=0.00, decimal_places=2, max_digits=100)
+    afm = models.CharField(max_length=9, blank=True, null=True, verbose_name="ΑΦΜ")
+    doy = models.CharField(max_length=200, blank=True, null=True)
+    phone = models.CharField(max_length=10, null=True, blank=True, verbose_name="Τηλέφωνο")
+    phone1 = models.CharField(max_length=10, null=True, blank=True, verbose_name="Τηλέφωνο")
+    fax = models.CharField(max_length=10, null=True, blank=True, verbose_name="Fax")
+    email = models.EmailField(null=True, blank=True, verbose_name="Email")
+    site = models.CharField(max_length=40, blank=True, null=True, verbose_name='Site')
+    address = models.CharField(max_length=40, null=True, blank=True, verbose_name='Διεύθυνση')
+    description = models.TextField(null=True, blank=True, verbose_name="Περιγραφή")
+    timestamp = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.title

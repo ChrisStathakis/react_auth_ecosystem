@@ -21,7 +21,11 @@ class VendorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vendor
-        fields = ['id', 'active', 'title', 'tag_balance']
+        fields = ['id', 'active', 'title', 'tag_balance',
+                  'afm', 'doy', 'phone', 'phone1', 'fax',
+                  'email', 'site', 'address', 'description',
+                  'timestamp'
+                  ]
 
 
 class ProductCreateSerializer(serializers.ModelSerializer):
