@@ -36,8 +36,9 @@ export const getBrands = (filters=null) => dispatch => {
 export const getVendors = (filters=null) => dispatch => {
     let endpoint = VENDORS_LIST_ENDPOINT;
     if (filters){
-        endpoint = endpoint + '?active='+filters.active
+        endpoint = endpoint + '?active='+filters.active + '&search=' + filters.search;
     }
+    console.log('endpoint', endpoint)
     axiosInstance.get(endpoint)
         .then(respData=>{
             dispatch({

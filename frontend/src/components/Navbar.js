@@ -31,6 +31,7 @@ class Navbar extends React.Component{
                     <Dropdown.Menu>
                         <Dropdown.Item ><Link style={{'color':'black'}} to='/product-class/' >Product Class</Link></Dropdown.Item>
                         <Dropdown.Item ><Link style={{'color':'black'}} to='/vendors/' >Vendors</Link></Dropdown.Item>
+                        <Dropdown.Item> <Link style={{'color':'black'}} to='/brands/'>Brands</Link></Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Header>Header Item</Dropdown.Header>
                         <Dropdown.Item>

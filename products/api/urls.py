@@ -7,8 +7,8 @@ from .views import ProductListView, ProductUpdateApiView,ProductCreateApiView, h
 app_name = 'products'
 
 router = DefaultRouter()
-router.register('brands', BrandViewSet, basename='brand')
-router.register('vendors', VendorViewSet, basename='vendor')
+router.register('brands', BrandViewSet, basename='brand',)
+router.register('vendors', VendorViewSet, basename='vendor', )
 router.register('product-class', ProductClassViewSet, basename='product_class')
 
 urlpatterns = [

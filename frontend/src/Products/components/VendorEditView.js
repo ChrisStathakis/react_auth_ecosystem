@@ -12,7 +12,8 @@ class VendorEditView extends React.Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.handleDelete = this.handleDelete.bind(this);
+        
         this.state = {
             title: '',
             afm: '',
@@ -27,6 +28,16 @@ class VendorEditView extends React.Component {
             address: '',
             description: ''
         }
+    }
+
+    handleDelete(){
+        const id = this.state.vendorID;
+        const endpoint = VENDORS_LIST_ENDPOINT + id + '/';
+        axiosInstance.delete(endpoint)
+            .then(respData=>{
+                alert(respData.data)
+                this.props.getVendors()
+            })
     }
 
     handleCheckBox = (e, data )=> {
@@ -85,6 +96,9 @@ class VendorEditView extends React.Component {
 
     componentDidMount(){
         const {id} = this.props;
+        this.setState({
+            vendorID: id
+        })
         this.getVendor(id);
     }
 
@@ -125,6 +139,7 @@ class VendorEditView extends React.Component {
                                         <Button onClick={this.handleCreateVendor} icon='save' content='Save' />
                                     </Form>
                                 </Segment>
+                                <Button color='red' onClick={this.handleDelete} content='Delete' />
                 </Grid.Column>
 
             </Grid>

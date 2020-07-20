@@ -15,8 +15,8 @@ from ..models import Product, Vendor, Brand, ProductClass
 def homepage(request, format=None):
     return Response({
         'products': reverse('products:list', request=request, format=format),
-        'products-create': reverse('products:create', request=request, format=format)
-
+        'products-create': reverse('products:create', request=request, format=format),
+        
     })
 
 
@@ -44,6 +44,11 @@ class ProductCreateApiView(generics.CreateAPIView):
 class VendorViewSet(ModelViewSet):
     serializer_class = VendorSerializer
     queryset = Vendor.objects.all()
+    permission_classes = [IsAuthenticated, ]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filterset_fields = ['active', ]
+    search_fields = ['title']
+
 
 
 class BrandViewSet(ModelViewSet):

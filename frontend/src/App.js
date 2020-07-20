@@ -10,6 +10,7 @@ import LoginView from "./LoginView";
 import LogoutView from './logout'
 import ProductClassView from "./Products/ProductClassView";
 import VendorView from "./Products/VendorView";
+import BrandView from './Products/BrandView';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route exact path={'/vendors/'} component={VendorView} />
                 <Route exact path={'/login/'} component={LoginView}/>
                 <Route exact path={'/logout/'} component={LogoutView} />
+                <Route exact path={'/brands/'} component={BrandView} />
             </Switch>
           </BrowserRouter>
         </div>

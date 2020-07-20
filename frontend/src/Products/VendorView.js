@@ -43,20 +43,13 @@ class VendorView extends React.Component{
             site: '',
             address: '',
             description: '',
-            activeFilter: true
+            activeFilter: true,
+            filterModal: false,
+            searchFilter:''
 
         }
     }
 
-    handleDelete(id){
-        const endpoint = BASE_URL + id + '/';
-        axiosInstance.delete(endpoint)
-            .then(
-                respData=>{
-                    this.props.getVendors()
-                }
-            )
-    }
 
     handleCheckPoint = (e, data) => {
         const name = data.name;
@@ -125,11 +118,22 @@ class VendorView extends React.Component{
     }
 
     handleFilters = () => {
+        this.handleFilterModal();
         const filters = {
-            active: this.state.activeFilter
+            active: this.state.activeFilter,
+            search: this.state.searchFilter
         };
         this.props.getVendors(filters)
     };
+
+    clearFilters = () => {
+        this.setState({
+            activeFilter: null,
+            searchFilter: ''
+        })
+        this.props.getVendors();
+        this.handleFilterModal();
+    }
 
     handleCreateVendor(event){
         event.preventDefault();
@@ -149,6 +153,11 @@ class VendorView extends React.Component{
             )
     }
 
+    handleFilterModal = () => {
+        this.setState({
+            filterModal: !this.state.filterModal
+        })
+    }
 
     componentDidMount(){
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -159,7 +168,9 @@ class VendorView extends React.Component{
         const {vendors} = this.props;
         const {createView, title, active, editView,
             listView, edit_id, email, site, phone,
-            phone1, description, afm, fax, doy, address, activeFilter} = this.state;
+            phone1, description, afm, fax, doy, address, activeFilter, searchFilter,
+            filterModal
+        } = this.state;
 
         return(
             <Responsive width={getWidth}>
@@ -171,10 +182,15 @@ class VendorView extends React.Component{
                             <Segment>
                                 <Header content='Vendors' />
                                 <Button color='green' content='Create Vendor' onClick={this.showCreateView}/>
-                                <Modal trigger={<Button>Filters</Button>}>
+                                <Modal 
+                                    trigger={<Button onClick={this.handleFilterModal}>Filters</Button>}
+                                    open={filterModal}
+                                    onClose={this.handleFilterModal} 
+                                    >
                                     <Modal.Header>Filters</Modal.Header>
                                     <Modal.Content>
                                         <Form>
+                                            <Form.Input onChange={this.handleChange} label='Search' name='searchFilter' value={searchFilter} />
                                             <Form.Field>
                                                 Active <b>{this.state.value}</b>
                                             </Form.Field>
@@ -196,7 +212,8 @@ class VendorView extends React.Component{
                                                 onChange={this.handleCheckPoint}
                                               />
                                             </Form.Field>
-                                            <Button onClick={this.handleFilters}/>
+                                            <Button icon='search' content='Search' onClick={this.handleFilters}/>
+                                            <Button icon='remove' content='Clear Filters' onClick={this.clearFilters} warning />
                                         </Form>
                                     </Modal.Content>
                                 </Modal>
@@ -227,7 +244,7 @@ class VendorView extends React.Component{
 
                                                 <Table.Cell>
                                                        <Button.Group>
-                                                           <Button onClick={()=> this.handleDelete(pr.id)} color='red' icon='remove'>Delete</Button>
+                                                           <Button  color='green' icon='remove'>Card</Button>
                                                            <Button.Or />
                                                            <Button onClick={()=> this.handleEditButton(pr.id)} primary icon='edit'>Edit </Button>
                                                        </Button.Group>
