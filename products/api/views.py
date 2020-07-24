@@ -50,14 +50,21 @@ class VendorViewSet(ModelViewSet):
     search_fields = ['title']
 
 
-
 class BrandViewSet(ModelViewSet):
     serializer_class = BrandSerializer
     queryset = Brand.objects.all()
-    authentication_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated, ]
+
+    def destroy(self, request, *args, **kwargs):
+        brand = self.get_object()
+        try:
+            brand.delete()
+            return Response(data='Brand Deleted')
+        except:
+            print('here!')
+            return Response(status=202, data='Object is Protected')
 
 
 class ProductClassViewSet(ModelViewSet):
     queryset = ProductClass.objects.all()
-
     serializer_class = ProductClassSerializer

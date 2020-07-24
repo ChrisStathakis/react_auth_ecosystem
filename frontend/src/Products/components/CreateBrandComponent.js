@@ -10,16 +10,25 @@ class CreateBrandComponent extends React.Component {
         this.state = {
             active:true,
             name:''
-        }
+        };
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    cleanForm(){this.setState({name: '', active: ''})}
 
     handleChange(evt){
         this.setState({
             [evt.target.name]: evt.target.value
         })
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+        const data = this.state;
+        axiosInstance.post(BRAND_CREATE_ENDPOINT, data)
+            .then(respData=>{this.props.getBrands(); this.cleanForm(); this.props.closeWindow()})
     }
 
 

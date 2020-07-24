@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     'profiles',
     'products',
+    'vendors',
 
 
 ]
@@ -143,4 +144,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+CURRENCY = 'F'
 

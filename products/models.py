@@ -1,14 +1,9 @@
 from django.db import models
-
-from django.contrib.postgres.search import TrigramSimilarity
-from django.contrib.postgres.search import SearchQuery, SearchVector
-from django.db import models
 from django.shortcuts import reverse
-from django.conf import settings
-from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from django.db.models import Min, Q, Avg
 from mptt.models import MPTTModel, TreeForeignKey 
 
+from vendors.models import Vendor
 
 CURRENCY = 'e'
 TAXES_CHOICES = (
@@ -23,28 +18,6 @@ class ProductClass(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Vendor(models.Model):
-    active = models.BooleanField(default=True)
-    title = models.CharField(max_length=200)
-    balance = models.DecimalField(default=0.00, decimal_places=2, max_digits=100)
-    afm = models.CharField(max_length=9, blank=True, null=True, verbose_name="ΑΦΜ")
-    doy = models.CharField(max_length=200, blank=True, null=True)
-    phone = models.CharField(max_length=10, null=True, blank=True, verbose_name="Τηλέφωνο")
-    phone1 = models.CharField(max_length=10, null=True, blank=True, verbose_name="Τηλέφωνο")
-    fax = models.CharField(max_length=10, null=True, blank=True, verbose_name="Fax")
-    email = models.EmailField(null=True, blank=True, verbose_name="Email")
-    site = models.CharField(max_length=40, blank=True, null=True, verbose_name='Site')
-    address = models.CharField(max_length=40, null=True, blank=True, verbose_name='Διεύθυνση')
-    description = models.TextField(null=True, blank=True, verbose_name="Περιγραφή")
-    timestamp = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
-
-    def tag_balance(self):
-        return f'{self.balance} {CURRENCY}'
 
 
 class Brand(models.Model):
@@ -133,7 +106,6 @@ class Product(models.Model):
     @property
     def tag_brand(self):
         return self.brand.title
-
 
     def __str__(self):
         return self.title

@@ -4,11 +4,15 @@ import {getBrands} from '../actions/productActions'
 import { Grid, Segment, Header, Table, Button, Form } from 'semantic-ui-react';
 import Navbar from '../components/Navbar';
 import CreateBrandComponent from './components/CreateBrandComponent';
-
+import  BrandEditView from './components/BrandEditView'
 
 class BrandView extends React.Component{
     constructor(props){
         super(props);
+        this.handleCreateView = this.handleCreateView.bind(this);
+        this.handleEditButton = this.handleEditButton.bind(this);
+        this.closeCreateBrand = this.closeCreateBrand.bind(this);
+        this.handleEditView   = this.handleEditButton.bind(this);
         this.state = {
             brands: [],
             createBrandView: true,
@@ -39,6 +43,10 @@ class BrandView extends React.Component{
         })
     }
 
+    closeEditBrandModal = () =>{this.setState({editBrandView: false, createBrandView: false})}
+
+    closeCreateBrand(){this.setState({createBrandView: false, editBrandView: false})}
+
     componentDidMount(){
         this.props.getBrands()
     }
@@ -53,8 +61,8 @@ class BrandView extends React.Component{
                     <Grid.Row>
                         <Grid.Column width={16}>
                             <Segment>
-                                <Header content='Product Class' />
-                                {createBrandView ? <CreateBrandComponent /> : null}
+                                <Header content='Brands' />
+                                <CreateBrandComponent closeWindow={this.handleEditButton} /> 
                                 <Table>
                                     <Table.Header>
                                         <Table.HeaderCell>ID</Table.HeaderCell>
@@ -67,8 +75,8 @@ class BrandView extends React.Component{
                                             return (
                                                 <Table.Row>
                                                     <Table.Cell>{brand.id}</Table.Cell>
-                                                    <Table.Cell>{brand.title}</Table.Cell>
-                                                    <Table.Cell>{brand.id}</Table.Cell>
+                                                    <Table.Cell>{brand.name}</Table.Cell>
+                                                    <Table.Cell>{brand.active ? 'Active': 'Inactive'}</Table.Cell>
                                                     <Table.Cell><Button onClick={()=> this.handleEditButton(brand.id)} /> </Table.Cell>
                                                 </Table.Row>
                                             )
@@ -78,8 +86,7 @@ class BrandView extends React.Component{
                             </Segment>
                         </Grid.Column>
                         <Grid.Column width={6}>
-                            
-                            {editBrandView ? <p>edit view</p> : null}
+                            {editBrandView ? <BrandEditView id={edit_id} closeWindow={this.closeEditBrandModal} /> : null}
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
