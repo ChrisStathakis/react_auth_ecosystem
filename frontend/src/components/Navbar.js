@@ -27,6 +27,7 @@ class Navbar extends React.Component{
               </Menu.Item>
               <Link to='/'><Menu.Item as='a'>Αρχικη Σελιδα</Menu.Item></Link>
                 <Link to='/products/'><Menu.Item as='a'>Προϊοντα</Menu.Item></Link>
+                <Link to='/invoices/'><Menu.Item as='a'>Invoices </Menu.Item></Link>
                 <Dropdown item simple text='Dropdown'>
                     <Dropdown.Menu>
                         <Dropdown.Item ><Link style={{'color':'black'}} to='/product-class/' >Product Class</Link></Dropdown.Item>

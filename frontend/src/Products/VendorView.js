@@ -1,12 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import { Grid, Table, Header, Form, Button, Responsive, Segment, Icon, Modal, Radio } from 'semantic-ui-react';
 import {getVendors} from  '../actions/productActions'
 import {BASE_URL, VENDORS_LIST_ENDPOINT} from '../components/endpoints';
 import axiosInstance from '../components/helpers';
+import { useHistory, withRouter } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
 import VendorEditView from './components/VendorEditView';
+
 
 
 const getWidth = () =>{
@@ -133,7 +136,12 @@ class VendorView extends React.Component{
         })
         this.props.getVendors();
         this.handleFilterModal();
-    }
+    };
+
+    goToCardView(id){
+        this.props.history.push(`/vendors/${id}`)
+    };
+
 
     handleCreateVendor(event){
         event.preventDefault();
@@ -244,7 +252,7 @@ class VendorView extends React.Component{
 
                                                 <Table.Cell>
                                                        <Button.Group>
-                                                           <Button  color='green' icon='remove'>Card</Button>
+                                                           <Button onClick={() => this.goToCardView(pr.id)}  color='green' icon='remove'>Card</Button>
                                                            <Button.Or />
                                                            <Button onClick={()=> this.handleEditButton(pr.id)} primary icon='edit'>Edit </Button>
                                                        </Button.Group>
@@ -318,4 +326,7 @@ const mapStateToProps = state => ({
 
 
 
-export default connect(mapStateToProps, {getVendors})(VendorView)
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {getVendors})
+)(VendorView);

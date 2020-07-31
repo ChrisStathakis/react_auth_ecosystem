@@ -1,9 +1,9 @@
-import {REQUEST_INVOICES, REQUEST_INVOICE} from "../actions/actionTypes";
+import {REQUEST_INVOICES, REQUEST_INVOICE, VENDOR_REQUEST, PAYMENT_REQUEST} from "../actions/actionTypes";
 
 
 const initialState = {
     invoices: [],
-    vendors: [],
+    payments: [],
     invoice: null
 
 };
@@ -20,6 +20,11 @@ export default function invoiceReducer(state=initialState, action) {
                 ...state,
                 invoice: action.payload
             };
+        case PAYMENT_REQUEST:
+            return {
+                ...state,
+                payments: action.payload
+            }
         default:
             return state
     }

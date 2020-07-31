@@ -119,23 +119,19 @@ class VendorBankingAccount(models.Model):
     def __str__(self):
         return f'{self.vendor.title} {self.payment_method.title}'
 
-    def get_edit_url(self):
-        return reverse('vendors:ajax_edit_banking_account', kwargs={'pk': self.id})
-
-    def get_delete_url(self):
-        return reverse('vendors:delete_banking_account_view', kwargs={'pk': self.id})
+    def tag_vendor(self):
+        return f'{self.vendor.title}'
 
 
 class Invoice(models.Model):
-    date = models.DateField(verbose_name='Ημερομηνια')
-    title = models.CharField(max_length=150, verbose_name='Αριθμος Τιμολογιου')
-    payment_method = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT, null=True,
-                                       verbose_name='Τροπος Πληρωμης')
-    vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE, related_name='invoices', verbose_name='Προμηθευτης')
-    value = models.DecimalField(decimal_places=2, max_digits=20, verbose_name='Καθαρή Αξια')
-    extra_value = models.DecimalField(decimal_places=2, max_digits=20, verbose_name='Επιπλέον Αξία')
-    final_value = models.DecimalField(decimal_places=2, max_digits=20, verbose_name='Αξία', default=0.00)
-    description = models.TextField(blank=True, verbose_name='Λεπτομεριες')
+    date = models.DateField()
+    title = models.CharField(max_length=150)
+    payment_method = models.ForeignKey(PaymentMethod, on_delete=models.PROTECT, null=True,)
+    vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE, related_name='invoices')
+    value = models.DecimalField(decimal_places=2, max_digits=20)
+    extra_value = models.DecimalField(decimal_places=2, max_digits=20)
+    final_value = models.DecimalField(decimal_places=2, max_digits=20)
+    description = models.TextField(blank=True)
 
     class Meta:
         ordering = ['-date']
@@ -152,6 +148,12 @@ class Invoice(models.Model):
 
     def tag_value(self):
         return f'{self.final_value} {CURRENCY}'
+
+    def tag_payment_method(self):
+        return f'{self.payment_method.title}'
+
+    def tag_vendor(self):
+        return f'{self.vendor.title}'
 
     @staticmethod
     def filters_data(request, qs):
@@ -185,6 +187,9 @@ class Payment(models.Model):
         super().save(*args, **kwargs)
         if self.vendor:
             self.vendor.update_paid_value()
+
+    def tag_payment_method(self):
+        return f'{self.payment_method.title}'
 
     def tag_value(self):
         return f'{self.value} {CURRENCY}'

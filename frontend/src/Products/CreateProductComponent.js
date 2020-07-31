@@ -31,13 +31,10 @@ class CreateProductView extends React.Component {
         event.preventDefault();
         const name = event.target.name;
         const value = event.target.value;
-        console.log(event)
         this.setState({
             [event.target.name]: event.target.value
         })
     };
-
-
 
     handleDropdown = (e, data)=>{
         const name = data.name;
@@ -47,7 +44,6 @@ class CreateProductView extends React.Component {
             [name]: value
         })
    };
-
 
 
     handleSubmit(event){

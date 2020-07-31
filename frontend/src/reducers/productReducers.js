@@ -24,12 +24,13 @@ export default  function productReducer(state=initialState, action) {
                 brands: action.payload.data
             };
         case VENDOR_REQUEST:
+            console.log('reducer', action.payload);
             return {
                 ...state,
-                vendors: action.payload.data
+                vendors: action.payload
             };
         case PRODUCT_CLASS_REQUEST:
-            console.log('reducer', action.payload)
+            console.log('reducer', action.payload);
             return{
                 ...state,
                 productClass: action.payload.data

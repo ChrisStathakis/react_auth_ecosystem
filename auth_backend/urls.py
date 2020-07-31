@@ -35,4 +35,6 @@ urlpatterns = [
     path('home/', HomeView.as_view()),
 
     path('api/products/', include('products.api.urls')),
+    path('api/vendors/', include('vendors.api.urls'))
+
 ]
